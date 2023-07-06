@@ -30,6 +30,18 @@ function showSlide(index) {
 	slideImage.src = slide.image;
 	slideTagline.innerHTML = slide.tagLine;
 
+// Mise à jour Des dots
+	dotsContainer.innerHTML = "";
+	for (let i = 0; i < slides.length; i++) {
+		const dot = document.createElement("div");
+		dot.className = "dot";
+		if (i === index) {
+			dot.classList.add("active");
+		}
+		dotsContainer.appendChild(dot);
+	}
+}
+
 // Affichage de la première diapositive au chargement de la page
 showSlide(currentSlideIndex);
 
@@ -50,18 +62,3 @@ nextArrow.addEventListener("click", function () {
 	}
 	showSlide(currentSlideIndex);
 });
-
-// Mise à jour Des dots
-	dotsContainer.innerHTML = "";
-	for (let i = 0; i < slides.length; i++) {
-		const dot = document.createElement("div");
-		dot.className = "dot";
-		if (i === index) {
-			dot.classList.add("active");
-		}
-		dotsContainer.appendChild(dot);
-	}
-}
-
-
-
